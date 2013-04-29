@@ -40,11 +40,15 @@ class ListShowsController < ApplicationController
   # POST /list_shows
   # POST /list_shows.json
   def create
-    @list_show = ListShow.new(params[:list_show])
+    @user = User.find_by_id(session[:user_id])
+    show = Show.find(params[:show_id])
+    @list_show = @user.list_shows.build
+    @list_show.show = show
+    #@list_show = ListShow.new(params[:list_show])
 
     respond_to do |format|
       if @list_show.save
-        format.html { redirect_to @list_show, notice: 'List show was successfully created.' }
+        format.html { redirect_to @list_show, notice: 'Show was added to list.' }
         format.json { render json: @list_show, status: :created, location: @list_show }
       else
         format.html { render action: "new" }
@@ -60,7 +64,7 @@ class ListShowsController < ApplicationController
 
     respond_to do |format|
       if @list_show.update_attributes(params[:list_show])
-        format.html { redirect_to @list_show, notice: 'List show was successfully updated.' }
+        format.html { redirect_to @list_show, notice: 'List was updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
