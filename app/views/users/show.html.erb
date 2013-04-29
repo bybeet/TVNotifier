@@ -16,6 +16,6 @@
 <h2>Your Shows</h2>
 <ul>
 	<% @user.list_shows.each do |myshow| %>
-		<li><%= myshow.show.title %></li>
+		<li><%= myshow.show.title %> <%= link_to "Delete", list_show_path(myshow), method: :delete %></li>
 	<% end %>
 </ul>

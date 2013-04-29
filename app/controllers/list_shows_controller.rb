@@ -48,7 +48,7 @@ class ListShowsController < ApplicationController
 
     respond_to do |format|
       if @list_show.save
-        format.html { redirect_to @list_show, notice: 'Show was added to list.' }
+        format.html { redirect_to shows_path, notice: "#{show.title} was added to list." }
         format.json { render json: @list_show, status: :created, location: @list_show }
       else
         format.html { render action: "new" }
@@ -80,7 +80,7 @@ class ListShowsController < ApplicationController
     @list_show.destroy
 
     respond_to do |format|
-      format.html { redirect_to list_shows_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

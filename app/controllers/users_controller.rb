@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :authorize, only: [:create, :new]
+  before_filter :admin, only: :index
 
   # GET /users
   # GET /users.json
@@ -16,10 +17,13 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+    if @user.id != session[:user_id]
+      redirect_to shows_path
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @user }
+      end
     end
   end
 
@@ -30,14 +34,16 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @user }
+      #format.json { render:back json: @user }
     end
   end
 
   # GET /users/1/edit
   def edit
-
     @user = User.find(params[:id])
+    if @user != User.find(session[:user_id])
+      redirect_to :back
+    end
   end
 
   # POST /users
