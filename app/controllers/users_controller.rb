@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_filter :authorize, only: [:create, :new]
+
   # GET /users
   # GET /users.json
   def index
@@ -34,6 +36,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+
     @user = User.find(params[:id])
   end
 

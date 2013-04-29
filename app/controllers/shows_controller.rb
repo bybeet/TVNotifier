@@ -1,4 +1,6 @@
 class ShowsController < ApplicationController
+  skip_before_filter :authorize
+  
   # GET /shows
   # GET /shows.json
   def index
@@ -22,7 +24,7 @@ class ShowsController < ApplicationController
   end
 
   def add_new
-    
+
   end
 
   # GET /shows/new
