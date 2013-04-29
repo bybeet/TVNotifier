@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Show:</b>
+  <%= @list_show.show_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @list_show.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_list_show_path(@list_show) %> |
+<%= link_to 'Back', list_shows_path %>

@@ -1,5 +1,8 @@
 TvNotifier::Application.routes.draw do
 
+  resources :list_shows
+
+
   root :to => 'shows#index'
 
   controller :sessions do
