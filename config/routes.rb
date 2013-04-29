@@ -1,6 +1,6 @@
 TvNotifier::Application.routes.draw do
 
-  root :to => 'sessions#new'
+  root :to => 'shows#index'
 
   controller :sessions do
     get 'login' => :new
