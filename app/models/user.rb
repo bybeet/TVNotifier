@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   has_secure_password
 
   #Many list_shows, destory the listshow for the user when user is destroyed.
-  has_many :list_shows, dependent: :destory
+  has_many :list_shows, dependent: :destroy
 end
