@@ -1,4 +1,7 @@
 TvNotifier::Application.routes.draw do
+  resources :users
+
+
   resources :shows
 
   # The priority is based upon order of creation:
