@@ -7,12 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<h1>TV Notifier</h1>
+	<p>A website to help you manage TV shows you watch and notify you when a new episode is airing.</p>
 
-<% if session[:user_id] %>
-<p>Logged in</p>
-
-	<%= button_to "Logout", logout_path, method: :delete %>
-<% end %>
+	<div id="columns">
+		<%= link_to "Shows", shows_path %>
+		<% if session[:user_id] %>
+			<%= link_to "My Account", user_path(session[:user_id]), method: :get %>
+			<%= link_to "Logout", logout_path, method: :delete %>
+		<% else %>
+			<%= link_to "Login", login_path %>
+			<%= link_to "Create Account", new_user_path %>
+		<% end %>
+	</div>
 
 <%= yield %>
 
