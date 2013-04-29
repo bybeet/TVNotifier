@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429011824) do
+ActiveRecord::Schema.define(:version => 20130429012829) do
 
-  create_table "tv_shows", :force => true do |t|
+  create_table "shows", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "show_id"
