@@ -21,8 +21,12 @@ class ShowsController < ApplicationController
     end
   end
 
+  def add_new
+    
+  end
+
   # GET /shows/new
-  # GET /shows/new.json
+  # GET /shows/new.jsonS
   def new
     @show = Show.new
 
