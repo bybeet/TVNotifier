@@ -10,6 +10,8 @@
 	<h1>TV Notifier</h1>
 	<p>A website to help you manage TV shows you watch and notify you when a new episode is airing.</p>
 	<p>Currently the show list is maintained by the community, but thetvdb.com integration is in the future</p>
+	<h3>Need a laugh?</h3>
+	<p><%= Joke.find("random").body %></p>
 
 	<div id="columns">
 		<%= link_to "Shows", shows_path %>
@@ -23,6 +25,7 @@
 	</div>
 
 <%= yield %>
+
 
 </body>
 </html>
